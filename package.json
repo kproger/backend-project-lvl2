@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
@@ -20,6 +21,8 @@
   },
   "homepage": "https://github.com/kproger/backend-project-lvl2#readme",
   "dependencies": {
-    "commander": "^6.2.1"
+    "commander": "^6.2.1",
+    "fs": "0.0.1-security",
+    "lodash": "^4.17.20"
   }
 }
