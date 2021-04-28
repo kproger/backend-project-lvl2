@@ -6,11 +6,8 @@ const makeAbsolutePath = (filePath) => path.resolve(process.cwd(), filePath);
 const getFileData = (filePath) => fs.readFileSync(makeAbsolutePath(filePath), 'utf-8');
 
 const compareFlatFiles = (path1, path2) => {
-    // const file1 = getFileData(path1);
-    // const file2 = getFileData(path2);
-
-    const file1 = fs.readFileSync(path.resolve(path1), 'utf-8');
-    const file2 = fs.readFileSync(path.resolve(path2), 'utf-8');
+    const file1 = JSON.parse(getFileData(path1));
+    const file2 = JSON.parse(getFileData(path2));
 
     const allKeys = Object.keys(file1).concat(Object.keys(file2));
     const sortedUniqKeys = _.uniq(allKeys).sort();
@@ -34,7 +31,5 @@ const compareFlatFiles = (path1, path2) => {
         }
     }, {}), null, ' ')
 };
-
-
 
 export default compareFlatFiles;
