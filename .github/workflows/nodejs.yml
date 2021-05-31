@@ -15,7 +15,7 @@ jobs:
     strategy:
       # Node versions list
       matrix:
-        node-version: [14.x]
+        node-version: [15.14.x]
 
     steps:
         # Check-out repository under GitHub workspace
@@ -46,7 +46,7 @@ jobs:
         uses: paambaati/codeclimate-action@v2.7.4
         # Add Code Climate secret key
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.142be7cdbe1cc406e6f40986dcafbd35dfed71653678758ec7b4d4fa55b537cd }}
+          CC_TEST_REPORTER_ID: 142be7cdbe1cc406e6f40986dcafbd35dfed71653678758ec7b4d4fa55b537cd
         with:
           coverageCommand: make test-coverage
           debug: true
