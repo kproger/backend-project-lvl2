@@ -34,10 +34,4 @@ test('base check', () => {
   expect(expectedOutpout).toEqual(genDiff(pathToFixturedFile1, pathToFixturedFile2));
 });
 
-test('path construction', () => {
-  const cwd = '/home/sharif/prog/proj2';
-  const srcDirectory = '/home/sharif/prog/proj2/__tests__';
 
-  expect(makeAbsolutePath('')).toBe(cwd);
-  expect(makeAbsolutePath('./__tests__')).toEqual((srcDirectory));
-});
