@@ -9,7 +9,6 @@ import {
   test,
 } from '@jest/globals';
 import {
-  makeAbsolutePath,
   genDiff,
 } from '../src/index.js';
 
@@ -33,5 +32,3 @@ test('base check', () => {
 }`;
   expect(expectedOutpout).toEqual(genDiff(pathToFixturedFile1, pathToFixturedFile2));
 });
-
-
