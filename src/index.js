@@ -14,7 +14,6 @@ const makeAppropiateOutput = (obj) => {
 };
 
 const compareFlatFiles = (path1, path2) => {
-  
   const file1 = parse(path1)(getFileData(path1));
   const file2 = parse(path2)(getFileData(path2));
 

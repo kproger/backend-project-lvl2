@@ -9,8 +9,6 @@ const __filename = fileURLToPath(
 const __dirname = dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 
-
-
 describe('generating data differences', () => {
   const expectedOutpout = `{
   - follow: false
@@ -24,18 +22,17 @@ describe('generating data differences', () => {
     test('comparing json files', () => {
       const pathToJSONFile1 = getFixturePath('file1.json');
       const pathToJSONFile2 = getFixturePath('file2.json');
-      
+
       expect(expectedOutpout).toEqual(genDiff(pathToJSONFile1, pathToJSONFile2));
     });
-  })
-  
+  });
+
   describe('yaml data', () => {
     test('comparing yml files', () => {
       const pathToYmlFile1 = getFixturePath('file1.yml');
       const pathToYmlFile2 = getFixturePath('file2.yaml');
-      
-      expect(expectedOutpout).toEqual(genDiff(pathToYmlFile1, pathToYmlFile2));
-    })
-});
-})
 
+      expect(expectedOutpout).toEqual(genDiff(pathToYmlFile1, pathToYmlFile2));
+    });
+  });
+});
