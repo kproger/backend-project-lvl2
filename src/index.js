@@ -14,8 +14,8 @@ const makeAppropiateOutput = (obj) => {
 };
 
 const compareFlatFiles = (path1, path2) => {
-  const file1 = parse(path1)(getFileData(path1));
-  const file2 = parse(path2)(getFileData(path2));
+  const file1 = parse(path1, (getFileData(path1)));
+  const file2 = parse(path2, (getFileData(path2)));
 
   const allKeys = Object.keys(file1).concat(Object.keys(file2));
   const sortedUniqKeys = _.uniq(allKeys).sort();

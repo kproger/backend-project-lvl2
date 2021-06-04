@@ -1,13 +1,21 @@
 import yaml from 'js-yaml';
 import path from 'path';
 
-const parse = (filePath) => {
+const parse = (filePath, fileContents) => {
   const format = path.extname(filePath);
 
-  if (format === '.json') {
-    return JSON.parse;
-  } if (format === '.yml' || format === '.yaml') {
-    return yaml.load;
+  switch (format) {
+    case '.json':
+      return JSON.parse(fileContents);
+
+    case '.yml':
+      return yaml.load(fileContents);
+
+    case '.yaml':
+      return yaml.load(fileContents);
+
+    default:
+      throw new Error(`Unknown order state: '${format}'!`);
   }
 };
 
