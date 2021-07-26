@@ -15,7 +15,7 @@ const parse = (filePath, fileContents) => {
       return yaml.load(fileContents);
 
     default:
-      throw new Error(`Unknown order state: '${format}'!`);
+      throw new Error(`Unknown format: '${format}'!`);
   }
 };
 

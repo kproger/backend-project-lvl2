@@ -8,7 +8,7 @@ publish:
 	npm publish --dry-run
 
 test: 
-	npx jest 
+	npx -n --experimental-vm-modules jest
 
 test-coverage:
 	npm test -- --coverage --coverageProvider=v8
