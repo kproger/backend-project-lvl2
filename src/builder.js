@@ -67,9 +67,9 @@ const buildTree = (obj1, obj2) => {
     if (!_.has(obj1, key)) {
         return {acc, key,  value, type: 'added'};
     } else if (!_.has(obj2, key)) {
-        return {acc, key, value, type: 'deleted'};
+        return {acc, key, val1, type: 'deleted'};
     } else if (_.isPlainObject(val1) && _.isPlainObject(value)) {
-        return {acc, key, val1, type: 'nested', children: buildTree(val1, value)};
+        return {acc, key, value, type: 'nested', children: buildTree(val1, value)};
     } else if (!_.isEqual(obj1, obj2)) {
         return {acc, key, value, type: 'changed'}
     } 
@@ -78,3 +78,5 @@ const buildTree = (obj1, obj2) => {
 
   return result;
 };
+
+console.log(buildTree(f1, f2));
