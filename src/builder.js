@@ -61,22 +61,22 @@ const f1 = {
 
 const buildTree = (obj1, obj2) => {
 
-  const result = _.union(_.keys(obj1), _.keys(obj2)).reduce((acc, key) => {
-    const val1 = obj1[key];
-    const value = obj2[key];
+  return { type: 'root', 
+    children: _.union(_.keys(obj1), _.keys(obj2)).map((key) => {
+    const value1 = obj1[key];
+    const value2 = obj2[key];
     if (!_.has(obj1, key)) {
-        return {acc, key,  value, type: 'added'};
+        return {key,  value: value2, type: 'added'};
     } else if (!_.has(obj2, key)) {
-        return {acc, key, val1, type: 'deleted'};
-    } else if (_.isPlainObject(val1) && _.isPlainObject(value)) {
-        return {acc, key, value, type: 'nested', children: buildTree(val1, value)};
+        return {key, value: value1, type: 'deleted'};
+    } else if (_.isPlainObject(value1) && _.isPlainObject(value2)) {
+        return {key, type: 'nested', children: buildTree(value1, value2)};
     } else if (!_.isEqual(obj1, obj2)) {
-        return {acc, key, value, type: 'changed'}
+        return {key, value: value2, type: 'changed'}
     } 
-    return {acc, key, value, type: 'unchanged'};
-  }, );
-
-  return result;
+    return {key, value: value2, type: 'unchanged'};
+  })
+  } 
 };
-
-console.log(buildTree(f1, f2));
+export {buildTree};
+export default buildTree(f1, f2);
